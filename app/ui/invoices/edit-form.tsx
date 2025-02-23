@@ -55,7 +55,14 @@ export default function EditInvoiceForm({
         </div>
         {/* Invoice Amount */}
 
-
+        <div id="amount-error" aria-live="polite" aria-atomic="true">
+          {state.errors?.amount &&
+            state.errors.amount.map((error: string) => (
+              <p className="mt-2 text-sm text-red-500" key={error}>
+                {error}
+              </p>
+            ))}
+        </div>
         <div className="mb-4">
           <label htmlFor="amount" className="mb-2 block text-sm font-medium">
             Choose an amount
@@ -77,7 +84,14 @@ export default function EditInvoiceForm({
         </div>
 
         {/* Invoice Status */}
-
+        <div id="status-error" aria-live="polite" aria-atomic="true">
+          {state.errors?.status &&
+            state.errors.status.map((error: string) => (
+              <p className="mt-2 text-sm text-red-500" key={error}>
+                {error}
+              </p>
+            ))}
+        </div>
         <fieldset>
           <legend className="mb-2 block text-sm font-medium">
             Set the invoice status
